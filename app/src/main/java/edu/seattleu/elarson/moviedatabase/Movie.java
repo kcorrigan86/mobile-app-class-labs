@@ -1,24 +1,25 @@
+// Kelly Corrigan
+// SEGR 5910 - Lab 2
+// 1/15/2017
+
 package edu.seattleu.elarson.moviedatabase;
 
-/**
- * Created by kellycorrigan on 1/14/17.
- */
-
-public class Movie {
+// Holds a title and genre for a movie
+class Movie {
     private String mTitle;
     private String mGenre;
 
     // Initialize title & genre
-    public Movie(String title, String genre) {
+    Movie(String title, String genre) {
         mTitle = title;
         mGenre = genre;
     }
 
-    public String getTitle() {
+    String getTitle() {
         return mTitle;
     }
 
-    public String getGenre() {
+    String getGenre() {
         return mGenre;
     }
 }
