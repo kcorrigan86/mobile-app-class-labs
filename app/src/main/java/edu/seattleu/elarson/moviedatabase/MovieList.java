@@ -16,11 +16,26 @@ class MovieList {
     // Constructor is private to prevent instantiation
     private MovieList() {
         mMovies = new ArrayList<>();
-        mMovies.add(new Movie("Frozen", "animated"));
-        mMovies.add(new Movie("Star Wars", "sci-fi"));
-        mMovies.add(new Movie("The Sound of Music", "musical"));
-        mMovies.add(new Movie("Back to the Future", "comedy"));
-        mMovies.add(new Movie("The Shining", "horror"));
+        mMovies.add(new Movie(
+                "Frozen",
+                "animated",
+                "http://frozen.disney.com/"));
+        mMovies.add(new Movie(
+                "Star Wars",
+                "sci-fi",
+                "http://www.starwars.com/"));
+        mMovies.add(new Movie(
+                "The Sound of Music",
+                "musical",
+                "http://www.imdb.com/title/tt0059742/"));
+        mMovies.add(new Movie(
+                "Back to the Future",
+                "comedy",
+                "http://www.imdb.com/title/tt0088763/"));
+        mMovies.add(new Movie(
+                "The Shining",
+                "horror",
+                "http://www.imdb.com/title/tt0081505/"));
     }
 
     // Allow lazy instantiation of a MovieList - object is not created until get() is called

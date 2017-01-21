@@ -8,11 +8,13 @@ package edu.seattleu.elarson.moviedatabase;
 class Movie {
     private String mTitle;
     private String mGenre;
+    private String mUrl;
 
     // Initialize title & genre
-    Movie(String title, String genre) {
+    Movie(String title, String genre, String url) {
         mTitle = title;
         mGenre = genre;
+        mUrl = url;
     }
 
     String getTitle() {
@@ -21,5 +23,9 @@ class Movie {
 
     String getGenre() {
         return mGenre;
+    }
+
+    String getUrl() {
+        return mUrl;
     }
 }
