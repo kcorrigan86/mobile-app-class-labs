@@ -6,7 +6,7 @@ package edu.seattleu.elarson.moviedatabase;
 
 import android.app.Fragment;
 
-public class MainActivity extends SingleFragmentActivity {
+public class MovieSelectorActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
