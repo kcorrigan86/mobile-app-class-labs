@@ -1,6 +1,6 @@
 // Kelly Corrigan
-// SEGR 5910 - Lab 2
-// 1/15/2017
+// SEGR 5910 - Lab 3
+// 1/23/2017
 
 package edu.seattleu.elarson.moviedatabase;
 
@@ -12,8 +12,10 @@ class MovieList {
     private static MovieList sMovieList = null;
     private ArrayList<Movie> mMovies;
 
-    // Create an ArrayList of movies with title and genre
-    // Constructor is private to prevent instantiation
+    /**
+     * Create an ArrayList of movies with title, genre, and URL
+     * Constructor is private to prevent instantiation
+     */
     private MovieList() {
         mMovies = new ArrayList<>();
         mMovies.add(new Movie(
@@ -38,7 +40,9 @@ class MovieList {
                 "http://www.imdb.com/title/tt0081505/"));
     }
 
-    // Allow lazy instantiation of a MovieList - object is not created until get() is called
+    /**
+     * Allow lazy instantiation of a MovieList - object is not created until get() is called
+     */
     static MovieList get(){
         if (sMovieList == null) {
             sMovieList = new MovieList();
@@ -46,7 +50,9 @@ class MovieList {
         return sMovieList;
     }
 
-    // Retrieve the ArrayList of movies (access using MovieList.get().getMovies())
+    /**
+     * Retrieve the ArrayList of movies (access using MovieList.get().getMovies())
+     */
     ArrayList<Movie> getMovies() {
         return mMovies;
     } }

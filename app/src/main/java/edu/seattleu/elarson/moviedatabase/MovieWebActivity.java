@@ -15,10 +15,14 @@ public class MovieWebActivity extends MovieSelectorActivity {
         super.onCreate(savedInstanceState);
         createFragment();
     }
+
+    /**
+     * Extract the intent and pass the url into a new instance
+     */
     @Override
     protected Fragment createFragment() {
         Intent intent = getIntent();
-        String url = intent.getStringExtra("Bob");
+        String url = intent.getStringExtra(MovieWebFragment.URL_KEY);
         return MovieWebFragment.newInstance(url);
     }
 }

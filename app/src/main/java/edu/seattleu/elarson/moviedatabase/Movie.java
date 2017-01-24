@@ -1,16 +1,20 @@
 // Kelly Corrigan
-// SEGR 5910 - Lab 2
-// 1/15/2017
+// SEGR 5910 - Lab 3
+// 1/23/2017
 
 package edu.seattleu.elarson.moviedatabase;
 
-// Holds a title and genre for a movie
+/**
+ * Holds a title, genre, and URL for a movie
+ */
 class Movie {
     private String mTitle;
     private String mGenre;
     private String mUrl;
 
-    // Initialize title & genre
+    /**
+     * Initialize title, genre, and url
+     */
     Movie(String title, String genre, String url) {
         mTitle = title;
         mGenre = genre;

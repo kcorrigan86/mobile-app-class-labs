@@ -1,3 +1,7 @@
+// Kelly Corrigan
+// SEGR 5910 - Lab 3
+// 1/23/2017
+
 package edu.seattleu.elarson.moviedatabase;
 
 import android.content.Context;
@@ -35,10 +39,7 @@ public class MovieSelectorFragment extends Fragment {
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment MovieSelectorFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static MovieSelectorFragment newInstance() {
         return new MovieSelectorFragment();
     }
@@ -49,6 +50,9 @@ public class MovieSelectorFragment extends Fragment {
         setRetainInstance(true);
     }
 
+    /**
+     * Set everything up when the homescreen view is created
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,7 +69,7 @@ public class MovieSelectorFragment extends Fragment {
         // Set the text of the movie title and genre in the view
         updateMovie(mCurrentIndex);
 
-        // Hook up the buttons for prev and next
+        // Hook up the buttons for prev, next, and view
         Button prevButton;
         Button nextButton;
         Button viewButton;
@@ -80,7 +84,6 @@ public class MovieSelectorFragment extends Fragment {
 
         return v;
     }
-
 
     @Override
     public void onAttach(Context context) {
@@ -99,20 +102,14 @@ public class MovieSelectorFragment extends Fragment {
         mListener = null;
     }
 
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
      */
-
     public interface OnMovieViewListener {
-        public void onMovieView(String url);
+        void onMovieView(String url);
     }
 
     // Set the text of the movie title and genre in the view based on the passed-in index in the
@@ -124,8 +121,10 @@ public class MovieSelectorFragment extends Fragment {
         mTextMovieGenre.setText(movie.getGenre());
     }
 
-    // If the prev button is clicked, set the text of the movie title and genre to the previous
-    // movie in the array
+    /**
+     * If the prev button is clicked, set the text of the movie title and genre to the previous
+     * movie in the array
+     */
     private View.OnClickListener prevButtonHandler = new View.OnClickListener() {
         public void onClick(View v) {
             mCurrentIndex = mCurrentIndex == 0 ? mMovies.size() - 1 : mCurrentIndex - 1;
@@ -133,8 +132,10 @@ public class MovieSelectorFragment extends Fragment {
         }
     };
 
-    // If the next button is clicked, set the text of the movie title and genre to the next movie
-    // in the array
+    /**
+     * If the next button is clicked, set the text of the movie title and genre to the next movie
+     * in the array
+     */
     private View.OnClickListener nextButtonHandler = new View.OnClickListener() {
         public void onClick(View v) {
             mCurrentIndex = mCurrentIndex == mMovies.size() - 1 ? 0 : mCurrentIndex + 1;
@@ -142,7 +143,9 @@ public class MovieSelectorFragment extends Fragment {
         }
     };
 
-
+    /**
+     * If the view button is clicked, get the movie's url, and open it in the web browser
+     */
     private View.OnClickListener viewButtonHandler = new View.OnClickListener() {
         public void onClick(View v) {
             if (mListener != null) {

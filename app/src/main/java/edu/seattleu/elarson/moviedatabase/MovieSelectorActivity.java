@@ -1,6 +1,6 @@
 // Kelly Corrigan
-// SEGR 5910 - Lab 2
-// 1/15/2017
+// SEGR 5910 - Lab 3
+// 1/23/2017
 
 package edu.seattleu.elarson.moviedatabase;
 
@@ -15,11 +15,16 @@ public class MovieSelectorActivity extends SingleFragmentActivity
         return MovieSelectorFragment.newInstance();
     }
 
+    /**
+     * Start MovieWebActivity using an Intent, passing the url as an
+     * Intent extra.
+     */
     @Override
     public void onMovieView(String url) {
         Intent intent = new Intent();
+
         intent.setClass(this, MovieWebActivity.class);
-        intent.putExtra("Bob", url);
+        intent.putExtra(MovieWebFragment.URL_KEY, url);
         startActivity(intent);
     }
 }
