@@ -1,5 +1,6 @@
 package edu.seattleu.elarson.moviedatabase;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,14 +15,14 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MovieSelectorFragment.OnFragmentInteractionListener} interface
+ * {@link OnMovieViewListener} interface
  * to handle interaction events.
  * Use the {@link MovieSelectorFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class MovieSelectorFragment extends Fragment {
 
-    // private OnFragmentInteractionListener mListener;
+    private OnMovieViewListener mListener;
     private ArrayList<Movie> mMovies;
     private int mCurrentIndex = 0;
     private TextView mTextMovieTitle;
@@ -67,27 +68,28 @@ public class MovieSelectorFragment extends Fragment {
         // Hook up the buttons for prev and next
         Button prevButton;
         Button nextButton;
+        Button viewButton;
 
         prevButton = (Button) v.findViewById(R.id.prevButton);
         nextButton = (Button) v.findViewById(R.id.nextButton);
+        viewButton = (Button) v.findViewById(R.id.viewButton);
 
         prevButton.setOnClickListener(prevButtonHandler);
         nextButton.setOnClickListener(nextButtonHandler);
+        viewButton.setOnClickListener(viewButtonHandler);
 
         return v;
     }
 
 
-
-    /**
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof OnMovieViewListener) {
+            mListener = (OnMovieViewListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement OnMovieViewListener");
         }
     }
 
@@ -96,7 +98,7 @@ public class MovieSelectorFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-    */
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -108,12 +110,10 @@ public class MovieSelectorFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    /**
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+
+    public interface OnMovieViewListener {
+        public void onMovieView(String url);
     }
-     */
 
     // Set the text of the movie title and genre in the view based on the passed-in index in the
     // movie array
@@ -139,6 +139,14 @@ public class MovieSelectorFragment extends Fragment {
         public void onClick(View v) {
             mCurrentIndex = mCurrentIndex == mMovies.size() - 1 ? 0 : mCurrentIndex + 1;
             updateMovie(mCurrentIndex);
+        }
+    };
+
+
+    private View.OnClickListener viewButtonHandler = new View.OnClickListener() {
+        public void onClick(View v) {
+            if (mListener != null) {
+                mListener.onMovieView(mMovies.get(mCurrentIndex).getUrl()); }
         }
     };
 
