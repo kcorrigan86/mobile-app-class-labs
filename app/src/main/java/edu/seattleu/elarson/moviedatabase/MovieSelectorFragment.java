@@ -1,6 +1,6 @@
 // Kelly Corrigan
-// SEGR 5910 - Lab 3
-// 1/23/2017
+// SEGR 5910 - Lab 4
+// 1/29/2017
 
 package edu.seattleu.elarson.moviedatabase;
 
@@ -91,6 +91,17 @@ public class MovieSelectorFragment extends Fragment {
         viewButton.setOnClickListener(viewButtonHandler);
 
         return v;
+    }
+
+
+    /**
+     * Update the movie when resuming this view so that when the movie is edited, the
+     * changes are reflected as soon as the user hits the back button to return to this view
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateMovie(mCurrentIndex);
     }
 
 
@@ -194,11 +205,12 @@ public class MovieSelectorFragment extends Fragment {
                 }
                 return true;
             case R.id.menu_item_web:
+                if (mListener != null) {
+                    mListener.onMovieView(mMovies.get(mCurrentIndex).getUrl());
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 }

@@ -1,6 +1,6 @@
 // Kelly Corrigan
-// SEGR 5910 - Lab 3
-// 1/23/2017
+// SEGR 5910 - Lab 4
+// 1/29/2017
 
 package edu.seattleu.elarson.moviedatabase;
 

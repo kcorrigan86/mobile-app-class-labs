@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_vertical_margin" >
+        android:paddingTop="@dimen/activity_small_vertical_margin" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,7 +22,11 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:id="@+id/movieTitleEditText"
+            android:inputType="text" />
 
     </LinearLayout>
 
@@ -30,7 +34,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_vertical_margin" >
+        android:paddingTop="@dimen/activity_small_vertical_margin" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,7 +44,11 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:id="@+id/movieGenreEditText"
+            android:inputType="text" />
 
     </LinearLayout>
 
@@ -48,7 +56,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_vertical_margin" >
+        android:paddingTop="@dimen/activity_small_vertical_margin" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,7 +66,11 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:id="@+id/movieUrlEditText"
+            android:inputType="textUri" />
 
     </LinearLayout>
 
@@ -66,15 +78,15 @@
         android:text="@string/watched_checkbox_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:id="@+id/checkBox"
+        android:paddingTop="@dimen/activity_small_vertical_margin"
+        android:id="@+id/movieWatchedCheckBox"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_vertical_margin" >
+        android:paddingTop="@dimen/activity_small_vertical_margin" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,7 +97,7 @@
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ratingBar"
+            android:id="@+id/movieRatingBar"
             android:numStars="5"
             android:stepSize="0.5"/>
 

@@ -1,6 +1,6 @@
 // Kelly Corrigan
-// SEGR 5910 - Lab 3
-// 1/23/2017
+// SEGR 5910 - Lab 4
+// 1/29/2017
 
 package edu.seattleu.elarson.moviedatabase;
 
@@ -48,4 +48,29 @@ class Movie {
     boolean getWatched() {
         return mWatched;
     }
+
+    /**
+     * Setters for the private variables
+     */
+
+    void setTitle(String title) {
+        mTitle = title;
+    }
+
+    void setGenre(String genre) {
+        mGenre = genre;
+    }
+
+    void setUrl(String url) {
+        mUrl = url;
+    }
+
+    void setRaing(float rating) {
+        mRating = rating;
+    }
+
+    void setWatched(boolean watched) {
+        mWatched = watched;
+    }
+
 }

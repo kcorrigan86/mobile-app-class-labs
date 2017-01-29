@@ -1,3 +1,7 @@
+// Kelly Corrigan
+// SEGR 5910 - Lab 4
+// 1/29/2017
+
 package edu.seattleu.elarson.moviedatabase;
 
 import android.app.Fragment;
