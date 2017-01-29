@@ -8,6 +8,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -32,9 +35,11 @@ public class MovieSelectorFragment extends Fragment {
     private TextView mTextMovieTitle;
     private TextView mTextMovieGenre;
 
+
     public MovieSelectorFragment() {
         // Required empty public constructor
     }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -44,11 +49,14 @@ public class MovieSelectorFragment extends Fragment {
         return new MovieSelectorFragment();
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        setHasOptionsMenu(true);
     }
+
 
     /**
      * Set everything up when the homescreen view is created
@@ -85,6 +93,34 @@ public class MovieSelectorFragment extends Fragment {
         return v;
     }
 
+
+    /**
+     * Inflate the menu
+     */
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_main, menu);
+    }
+
+
+    /**
+     * Process menu action choices
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_edit:
+                return true;
+            case R.id.menu_item_web:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -96,11 +132,13 @@ public class MovieSelectorFragment extends Fragment {
         }
     }
 
+
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -112,6 +150,7 @@ public class MovieSelectorFragment extends Fragment {
         void onMovieView(String url);
     }
 
+
     // Set the text of the movie title and genre in the view based on the passed-in index in the
     // movie array
     private void updateMovie(int currentIndex) {
@@ -120,6 +159,7 @@ public class MovieSelectorFragment extends Fragment {
         mTextMovieTitle.setText(movie.getTitle());
         mTextMovieGenre.setText(movie.getGenre());
     }
+
 
     /**
      * If the prev button is clicked, set the text of the movie title and genre to the previous
@@ -132,6 +172,7 @@ public class MovieSelectorFragment extends Fragment {
         }
     };
 
+
     /**
      * If the next button is clicked, set the text of the movie title and genre to the next movie
      * in the array
@@ -142,6 +183,7 @@ public class MovieSelectorFragment extends Fragment {
             updateMovie(mCurrentIndex);
         }
     };
+
 
     /**
      * If the view button is clicked, get the movie's url, and open it in the web browser

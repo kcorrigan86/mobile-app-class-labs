@@ -6,6 +6,8 @@
     <string name="prev_button_text">Prev</string>
     <string name="view_button_text">View</string>
     <string name="next_button_text">Next</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_web">View Web Page</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -5,21 +5,29 @@
 package edu.seattleu.elarson.moviedatabase;
 
 /**
- * Holds a title, genre, and URL for a movie
+ * Holds information about a movie
  */
 class Movie {
     private String mTitle;
     private String mGenre;
     private String mUrl;
+    private float mRating;
+    private boolean mWatched;
 
     /**
-     * Initialize title, genre, and url
+     * Initialize a Movie
      */
     Movie(String title, String genre, String url) {
         mTitle = title;
         mGenre = genre;
         mUrl = url;
+        mRating = 0.0f;
+        mWatched = false;
     }
+
+    /**
+     * Getters for private variables
+     */
 
     String getTitle() {
         return mTitle;
@@ -31,5 +39,13 @@ class Movie {
 
     String getUrl() {
         return mUrl;
+    }
+
+    float getRating() {
+        return mRating;
+    }
+
+    boolean getWatched() {
+        return mWatched;
     }
 }
