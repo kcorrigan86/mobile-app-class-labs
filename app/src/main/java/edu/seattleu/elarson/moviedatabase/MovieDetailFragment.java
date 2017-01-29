@@ -1,40 +1,37 @@
-// Kelly Corrigan
-// SEGR 5910 - Lab 3
-// 1/23/2017
-
 package edu.seattleu.elarson.moviedatabase;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MovieWebFragment#newInstance} factory method to
+ * Use the {@link MovieDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MovieWebFragment extends Fragment {
-    public static final String URL_KEY = "urlKey";
-    private String mUrl;
+public class MovieDetailFragment extends Fragment {
+    public static final String INDEX_KEY = "movieIndex";
+    private int mMovieIndex;
 
 
-    public MovieWebFragment() {
+    public MovieDetailFragment() {
         // Required empty public constructor
     }
+
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      */
-    public static MovieWebFragment newInstance(String url) {
-        MovieWebFragment fragment = new MovieWebFragment();
+    public static MovieDetailFragment newInstance(int movieIndex) {
+        MovieDetailFragment fragment = new MovieDetailFragment();
         Bundle args = new Bundle();
-        args.putString(URL_KEY, url);
+        args.putInt(INDEX_KEY, movieIndex);
         fragment.setArguments(args);
         return fragment;
     }
@@ -44,10 +41,9 @@ public class MovieWebFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mUrl = getArguments().getString(URL_KEY);
+            mMovieIndex = getArguments().getInt(INDEX_KEY);
         }
     }
-
 
     /**
      * Set up the view
@@ -56,15 +52,6 @@ public class MovieWebFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_movie_web, container, false);
-        WebView webView = (WebView) v.findViewById(R.id.webView);
-
-        // Avoid having the back button take the user to a blank page from certain URLs
-        webView.setWebViewClient(new WebViewClient());
-
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(mUrl);
-        return v;
+        return inflater.inflate(R.layout.fragment_movie_detail, container, false);
     }
-
 }

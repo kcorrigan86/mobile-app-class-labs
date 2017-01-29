@@ -27,4 +27,17 @@ public class MovieSelectorActivity extends SingleFragmentActivity
         intent.putExtra(MovieWebFragment.URL_KEY, url);
         startActivity(intent);
     }
+
+    /**
+     * Start MovieDetailActivity using an Intent, passing the movie index
+     * as an Intent extra.
+     */
+    @Override
+    public void onMovieEdit(int movieIndex) {
+        Intent intent = new Intent();
+
+        intent.setClass(this, MovieDetailActivity.class);
+        intent.putExtra(MovieDetailFragment.INDEX_KEY, movieIndex);
+        startActivity(intent);
+    }
 }

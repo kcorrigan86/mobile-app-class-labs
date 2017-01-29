@@ -77,7 +77,7 @@ public class MovieSelectorFragment extends Fragment {
         // Set the text of the movie title and genre in the view
         updateMovie(mCurrentIndex);
 
-        // Hook up the buttons for prev, next, and view
+        // Hook up buttons
         Button prevButton;
         Button nextButton;
         Button viewButton;
@@ -91,33 +91,6 @@ public class MovieSelectorFragment extends Fragment {
         viewButton.setOnClickListener(viewButtonHandler);
 
         return v;
-    }
-
-
-    /**
-     * Inflate the menu
-     */
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
-    {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_main, menu);
-    }
-
-
-    /**
-     * Process menu action choices
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_item_edit:
-                return true;
-            case R.id.menu_item_web:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
 
@@ -148,6 +121,7 @@ public class MovieSelectorFragment extends Fragment {
      */
     public interface OnMovieViewListener {
         void onMovieView(String url);
+        void onMovieEdit(int movieIndex);
     }
 
 
@@ -191,8 +165,40 @@ public class MovieSelectorFragment extends Fragment {
     private View.OnClickListener viewButtonHandler = new View.OnClickListener() {
         public void onClick(View v) {
             if (mListener != null) {
-                mListener.onMovieView(mMovies.get(mCurrentIndex).getUrl()); }
+                mListener.onMovieView(mMovies.get(mCurrentIndex).getUrl());
+            }
         }
     };
+
+
+    /**
+     * Inflate the menu
+     */
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_main, menu);
+    }
+
+
+    /**
+     * Process menu action choices
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_edit:
+                if (mListener != null) {
+                    mListener.onMovieEdit(mCurrentIndex);
+                }
+                return true;
+            case R.id.menu_item_web:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
 }
