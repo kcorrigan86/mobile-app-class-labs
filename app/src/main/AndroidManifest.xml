@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".MovieWebActivity"
                   android:label="@string/title_activity_movie_web"
+                  android:configChanges="orientation|screenSize"
                   android:parentActivityName=".MovieSelectorActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
