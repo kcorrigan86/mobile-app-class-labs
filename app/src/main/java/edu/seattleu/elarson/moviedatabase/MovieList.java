@@ -10,7 +10,7 @@ import java.util.ArrayList;
 // access using the get method
 class MovieList {
     private static MovieList sMovieList = null;
-    private ArrayList<Movie> mMovies;
+    private final ArrayList<Movie> mMovies;
 
     /**
      * Create an ArrayList of movies with title, genre, and URL

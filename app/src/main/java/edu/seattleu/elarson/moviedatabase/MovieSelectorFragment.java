@@ -150,7 +150,7 @@ public class MovieSelectorFragment extends Fragment {
      * If the prev button is clicked, set the text of the movie title and genre to the previous
      * movie in the array
      */
-    private View.OnClickListener prevButtonHandler = new View.OnClickListener() {
+    private final View.OnClickListener prevButtonHandler = new View.OnClickListener() {
         public void onClick(View v) {
             mCurrentIndex = mCurrentIndex == 0 ? mMovies.size() - 1 : mCurrentIndex - 1;
             updateMovie(mCurrentIndex);
@@ -162,7 +162,7 @@ public class MovieSelectorFragment extends Fragment {
      * If the next button is clicked, set the text of the movie title and genre to the next movie
      * in the array
      */
-    private View.OnClickListener nextButtonHandler = new View.OnClickListener() {
+    private final View.OnClickListener nextButtonHandler = new View.OnClickListener() {
         public void onClick(View v) {
             mCurrentIndex = mCurrentIndex == mMovies.size() - 1 ? 0 : mCurrentIndex + 1;
             updateMovie(mCurrentIndex);
@@ -173,7 +173,7 @@ public class MovieSelectorFragment extends Fragment {
     /**
      * If the view button is clicked, get the movie's url, and open it in the web browser
      */
-    private View.OnClickListener viewButtonHandler = new View.OnClickListener() {
+    private final View.OnClickListener viewButtonHandler = new View.OnClickListener() {
         public void onClick(View v) {
             if (mListener != null) {
                 mListener.onMovieView(mMovies.get(mCurrentIndex).getUrl());

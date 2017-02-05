@@ -65,7 +65,7 @@ class Movie {
         mUrl = url;
     }
 
-    void setRaing(float rating) {
+    void setRating(float rating) {
         mRating = rating;
     }
 

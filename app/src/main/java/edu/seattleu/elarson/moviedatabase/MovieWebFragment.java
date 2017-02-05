@@ -4,6 +4,7 @@
 
 package edu.seattleu.elarson.moviedatabase;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -52,6 +53,7 @@ public class MovieWebFragment extends Fragment {
     /**
      * Set up the view
      */
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

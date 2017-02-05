@@ -103,7 +103,7 @@ public class MovieDetailFragment extends Fragment {
     /**
      * Handle changes to the movie title
      */
-    private TextWatcher titleChangedHandler = new TextWatcher() {
+    private final TextWatcher titleChangedHandler = new TextWatcher() {
         public void onTextChanged(CharSequence c, int start, int before, int count) {
             mMovie.setTitle(c.toString());
         }
@@ -115,7 +115,7 @@ public class MovieDetailFragment extends Fragment {
     /**
      * Handle changes to the movie genre
      */
-    private TextWatcher genreChangedHandler = new TextWatcher() {
+    private final TextWatcher genreChangedHandler = new TextWatcher() {
         public void onTextChanged(CharSequence c, int start, int before, int count) {
             mMovie.setGenre(c.toString());
         }
@@ -127,7 +127,7 @@ public class MovieDetailFragment extends Fragment {
     /**
      * Handle changes to the movie URL
      */
-    private TextWatcher urlChangedHandler = new TextWatcher() {
+    private final TextWatcher urlChangedHandler = new TextWatcher() {
         public void onTextChanged(CharSequence c, int start, int before, int count) {
             mMovie.setUrl(c.toString());
         }
@@ -139,7 +139,7 @@ public class MovieDetailFragment extends Fragment {
     /**
      * Handle changes to the movie watched checkbox
      */
-    private CompoundButton.OnCheckedChangeListener watchedChangedHandler =
+    private final CompoundButton.OnCheckedChangeListener watchedChangedHandler =
             new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     mMovie.setWatched(isChecked);
@@ -149,10 +149,10 @@ public class MovieDetailFragment extends Fragment {
     /**
      * Handle changes to the movie rating bar
      */
-    private RatingBar.OnRatingBarChangeListener ratingChangedHandler =
+    private final RatingBar.OnRatingBarChangeListener ratingChangedHandler =
             new RatingBar.OnRatingBarChangeListener() {
                 public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                    mMovie.setRaing(rating);
+                    mMovie.setRating(rating);
                 }
             };
 }
